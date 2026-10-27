@@ -1,0 +1,12 @@
+{
+  "domain": "matouch_controller",
+  "name": "MaTouch Controller",
+  "codeowners": ["@iarj"],
+  "config_flow": true,
+  "dependencies": ["esphome"],
+  "documentation": "https://github.com/iarj/matouch-controller-HomeAssistant",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/iarj/matouch-controller-HomeAssistant/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

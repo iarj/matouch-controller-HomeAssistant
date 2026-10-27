@@ -1,0 +1,160 @@
+permission_check:
+  name: Check connection
+  description: Read-only query for the MaTouch integration response. It does not synchronize or control entities.
+  fields:
+    device_uid:
+      required: true
+      selector:
+        text:
+    boot_id:
+      required: true
+      selector:
+        text:
+    request_id:
+      required: true
+      selector:
+        text:
+    protocol_version:
+      required: true
+      selector:
+        text:
+command:
+  fields:
+    device_uid:
+      required: true
+      example: "<device_uid>"
+      selector:
+        text:
+    protocol_version:
+      required: true
+      example: "1.0"
+      selector:
+        text:
+    boot_id:
+      required: true
+      example: "00000001"
+      selector:
+        text:
+    request_id:
+      required: true
+      example: "00000001-000001"
+      selector:
+        text:
+    command:
+      required: true
+      example: "toggle"
+      selector:
+        select:
+          options:
+            - "toggle"
+    page_slot:
+      required: true
+      example: 1
+      selector:
+        number:
+          min: 1
+          max: 6
+          mode: box
+    control_slot:
+      required: true
+      example: 1
+      selector:
+        number:
+          min: 1
+          mode: box
+
+
+hello:
+  fields:
+    device_uid:
+      required: true
+      selector:
+        text:
+    product_profile:
+      required: true
+      selector:
+        text:
+    protocol_version:
+      required: true
+      selector:
+        text:
+    schema_version:
+      required: true
+      selector:
+        text:
+    firmware_version:
+      required: true
+      selector:
+        text:
+    template_library_version:
+      required: true
+      selector:
+        text:
+    config_hash:
+      required: true
+      selector:
+        text:
+    boot_id:
+      required: true
+      selector:
+        text:
+
+snapshot_ack:
+  fields:
+    device_uid:
+      required: true
+      selector:
+        text:
+    boot_id:
+      required: true
+      selector:
+        text:
+    integration_session_id:
+      required: true
+      selector:
+        text:
+    config_revision:
+      required: true
+      selector:
+        number:
+          min: 1
+          mode: box
+    state_revision:
+      required: true
+      selector:
+        number:
+          min: 1
+          mode: box
+
+snapshot_request:
+  fields:
+    device_uid:
+      required: true
+      selector:
+        text:
+    boot_id:
+      required: true
+      selector:
+        text:
+    integration_session_id:
+      required: true
+      selector:
+        text:
+    config_revision:
+      required: true
+      selector:
+        number:
+          min: 1
+          mode: box
+    state_revision:
+      required: true
+      selector:
+        number:
+          min: 1
+          mode: box
+    error_code:
+      required: true
+      example: "E_SNAPSHOT_TIMEOUT"
+      selector:
+        text:
+

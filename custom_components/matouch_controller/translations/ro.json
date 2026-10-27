@@ -1,0 +1,205 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectează dispozitivul ESPHome MaTouch",
+        "description": "Selectează acțiunea ESPHome care returnează manifestul runtime MaTouch.",
+        "data": {
+          "manifest_action": "Acțiunea ESPHome pentru manifestul runtime"
+        }
+      },
+      "device": {
+        "title": "Denumește dispozitivul MaTouch",
+        "description": "Alege numele din Home Assistant pentru dispozitivul părinte MaTouch Controller. Dispozitivul se adaugă fără pagini configurate; paginile se configurează apoi din opțiunile integrării. Titlurile paginilor funcționale urmează numele din Home Assistant ale dispozitivelor-copil ale paginilor.",
+        "data": {
+          "display_name": "Numele dispozitivului"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigurează o pagină MaTouch",
+        "description": "Selectează o pagină funcțională compilată. Paginile configurate pot fi editate; paginile neconfigurate pot fi configurate acum. ✓ pagină configurată · ○ pagină neconfigurată.",
+        "data": {
+          "page_slot": "Pagină"
+        }
+      },
+      "reconfigure_page_control": {
+        "title": "Configurează pagina MaTouch",
+        "description": "Pagina: {page_title} · Șablon: {template} · Controlul {control_slot} · Funcția: {function} · Pasul {position} din {total}. Pagina se salvează atomic numai după ce toate controalele obligatorii sunt valide.",
+        "data": {
+          "entity_id": "Entitate Home Assistant",
+          "label": "Eticheta afișată"
+        }
+      },
+      "reconfigure_control": {
+        "title": "Selectează controlul MaTouch",
+        "description": "Pagina: {page_title}. Selectează un control. Celelalte asocieri rămân neschimbate.",
+        "data": {
+          "control_slot": "Control"
+        }
+      },
+      "reconfigure_mapping": {
+        "title": "Editează controlul MaTouch",
+        "description": "Pagina: {page_title} · Controlul: {control_label} · Funcția: {function}. Se modifică numai această asociere.",
+        "data": {
+          "entity_id": "Entitate Home Assistant",
+          "label": "Eticheta afișată",
+          "remove_mapping": "Elimină asocierea acestui control"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Manifestul runtime nu a putut fi obținut de la dispozitivul ESPHome.",
+      "invalid_manifest": "Dispozitivul ESPHome a returnat un manifest runtime invalid sau incompatibil.",
+      "invalid_mapping": "Entitatea Home Assistant sau configurația paginii selectate este invalidă.",
+      "invalid_selection": "Selectează o pagină sau un control valid.",
+      "display_name_required": "Numele dispozitivului este obligatoriu.",
+      "display_name_too_long": "Numele dispozitivului: maximum 20 de caractere.",
+      "label_required": "Eticheta afișată este obligatorie.",
+      "label_too_long": "Eticheta afișată: maximum 8 caractere.",
+      "label_unsupported_chars": "Eticheta afișată conține caractere nesuportate."
+    },
+    "abort": {
+      "manifest_unavailable": "Nu este disponibilă nicio acțiune ESPHome compatibilă pentru manifestul runtime MaTouch.",
+      "already_configured": "Acest dispozitiv MaTouch este deja configurat cu acțiunea ESPHome selectată.",
+      "transport_reassociated": "Dispozitivul MaTouch existent folosește acum acțiunea ESPHome selectată. Asocierile au fost păstrate.",
+      "cannot_connect": "Manifestul runtime nu a putut fi obținut de la dispozitivul ESPHome.",
+      "invalid_manifest": "Dispozitivul ESPHome a returnat un manifest runtime invalid sau incompatibil.",
+      "invalid_mapping": "Asocierile salvate nu sunt compatibile cu manifestul runtime curent.",
+      "reconfigure_successful": "Configurația MaTouch a fost actualizată.",
+      "stale_configuration": "Configurația s-a schimbat. Redeschide formularul."
+    }
+  },
+  "options": {
+    "step": {
+      "page": {
+        "title": "Meniu MaTouch",
+        "description": "Alege o pagină de configurat, numele dispozitivului, paginile active sau ordinea paginilor. Fiecare modificare confirmată se salvează imediat. Gata închide meniul. ✓ pagină configurată · ○ pagină neconfigurată.",
+        "data": {
+          "page_slot": "Meniu"
+        }
+      },
+      "page_saved": {
+        "title": "Meniu MaTouch",
+        "description": "Salvat în Home Assistant, revizia configurației {config_revision}. Display-ul se sincronizează automat când unitatea este conectată. Senzorul Runtime configuration arată revizia salvată; entitatea Stare sincronizare MaTouch a dispozitivului ESPHome arată starea raportată de display. ✓ pagină configurată · ○ pagină neconfigurată.",
+        "data": {
+          "page_slot": "Meniu"
+        }
+      },
+      "device": {
+        "title": "Editează numele dispozitivului MaTouch",
+        "description": "Numele aparține dispozitivului părinte MaTouch Controller și se salvează la confirmare. Pentru a schimba titlul unei pagini funcționale, redenumește dispozitivul-copil al paginii în Home Assistant.",
+        "data": {
+          "display_name": "Numele dispozitivului"
+        }
+      },
+      "page_control_select": {
+        "title": "Alege slotul paginii",
+        "description": "Pagina: {page_title}. Alege un slot pentru a adăuga, înlocui, redenumi sau elimina asocierea lui. Fiecare slot confirmat se salvează imediat. ○ marchează un slot fără asociere.",
+        "data": {
+          "control_slot": "Slot"
+        }
+      },
+      "page_control": {
+        "title": "Editează pagina MaTouch",
+        "description": "Pagina: {page_title} · Șablon: {template} · Controlul {control_slot} · Funcția: {function} · Controlul {position} din {total}. Modificarea se salvează când pagina sau slotul este complet; o pagină incompletă nu se salvează.",
+        "data": {
+          "entity_id": "Entitate Home Assistant",
+          "label": "Eticheta afișată",
+          "remove_mapping": "Elimină asocierea acestui control"
+        }
+      },
+      "active_pages": {
+        "title": "Paginile active MaTouch",
+        "description": "Se schimbă numai masca locală a paginilor funcționale active de pe dispozitiv. Asocierile și reviziile nu se schimbă. Dispozitivul rămâne autoritatea.",
+        "data": {
+          "active_page_slots": "Pagini funcționale active"
+        }
+      },
+      "page_order": {
+        "title": "Ordinea paginilor MaTouch",
+        "description": "Introdu fiecare slot de pagină funcțională compilat exact o dată, separat prin virgulă, în ordinea de navigare dorită. Dispozitivul rămâne autoritatea; asocierile, paginile active și reviziile nu se schimbă.",
+        "data": {
+          "page_order": "Ordinea paginilor funcționale"
+        }
+      }
+    },
+    "error": {
+      "invalid_mapping": "Entitatea Home Assistant sau configurația paginii selectate este invalidă.",
+      "invalid_selection": "Selectează un element valid din meniu.",
+      "display_name_required": "Numele dispozitivului este obligatoriu.",
+      "display_name_too_long": "Numele dispozitivului: maximum 20 de caractere.",
+      "label_required": "Eticheta afișată este obligatorie.",
+      "label_too_long": "Eticheta afișată: maximum 8 caractere.",
+      "label_unsupported_chars": "Eticheta afișată conține caractere nesuportate.",
+      "active_mask_unavailable": "Masca paginilor active nu a putut fi citită de pe dispozitiv. Nu s-a trimis nicio modificare.",
+      "active_mask_invalid_selection": "Selectează cel puțin o pagină funcțională compilată.",
+      "active_mask_invalid_response": "Dispozitivul a returnat un răspuns invalid pentru paginile active. Starea observată este învechită.",
+      "active_mask_rejected": "Dispozitivul a respins modificarea paginilor active și a păstrat starea efectivă returnată.",
+      "active_mask_result_unknown": "Scrierea paginilor active nu a putut fi confirmată. Nu s-a reîncercat automat; reîmprospătează înainte de o nouă încercare.",
+      "page_order_unavailable": "Ordinea paginilor nu a putut fi citită de pe dispozitiv. Nu s-a trimis nicio modificare.",
+      "page_order_invalid_selection": "Introdu fiecare slot de pagină funcțională compilat exact o dată, în ordinea dorită.",
+      "page_order_invalid_response": "Dispozitivul a returnat un răspuns invalid pentru ordinea paginilor. Starea observată este învechită.",
+      "page_order_rejected": "Dispozitivul a respins modificarea ordinii și a păstrat ordinea efectivă returnată.",
+      "page_order_result_unknown": "Scrierea ordinii nu a putut fi confirmată. Nu s-a reîncercat automat scrierea; ordinea a fost recitită de pe dispozitiv."
+    },
+    "abort": {
+      "manifest_unavailable": "Acțiunea configurată pentru manifestul runtime MaTouch nu este disponibilă.",
+      "cannot_connect": "Manifestul runtime nu a putut fi obținut de la dispozitivul ESPHome.",
+      "invalid_manifest": "Dispozitivul ESPHome a returnat un manifest runtime invalid sau incompatibil.",
+      "invalid_mapping": "Asocierile salvate nu sunt compatibile cu manifestul runtime curent.",
+      "menu_closed": "Meniul MaTouch a fost închis. Modificările salvate se păstrează.",
+      "stale_configuration": "Configurația s-a schimbat. Redeschide formularul."
+    }
+  },
+  "selector": {
+    "options_menu": {
+      "options": {
+        "display_name": "Numele dispozitivului",
+        "active_pages": "Pagini active · dispozitiv",
+        "page_order": "Ordinea paginilor · dispozitiv",
+        "done": "Gata"
+      }
+    },
+    "slot_menu": {
+      "options": {
+        "back": "Înapoi la meniu"
+      }
+    }
+  },
+  "services": {
+    "command": {
+      "name": "Procesează o comandă MaTouch",
+      "description": "Procesează o comandă de control validată, trimisă de un dispozitiv MaTouch configurat.",
+      "fields": {
+        "device_uid": {
+          "name": "UID dispozitiv",
+          "description": "UUID-ul stabil al dispozitivului MaTouch."
+        },
+        "protocol_version": {
+          "name": "Versiunea protocolului",
+          "description": "Versiunea protocolului MaTouch folosită de dispozitiv."
+        },
+        "boot_id": {
+          "name": "ID boot",
+          "description": "Identificator generat de dispozitiv pentru boot-ul curent."
+        },
+        "request_id": {
+          "name": "ID cerere",
+          "description": "Identificator unic al comenzii, folosit pentru deduplicare."
+        },
+        "command": {
+          "name": "Comandă",
+          "description": "Funcția cerută de controlul asociat."
+        },
+        "page_slot": {
+          "name": "Slot pagină",
+          "description": "Slotul paginii, numerotat de la 1, expus de manifestul dispozitivului."
+        },
+        "control_slot": {
+          "name": "Slot control",
+          "description": "Slotul controlului în pagină, numerotat de la 1 și definit de șablon."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Select the MaTouch ESPHome device",
+        "description": "Select the ESPHome action that returns the MaTouch runtime manifest.",
+        "data": {
+          "manifest_action": "ESPHome runtime manifest action"
+        }
+      },
+      "device": {
+        "title": "Name this MaTouch device",
+        "description": "Choose the Home Assistant name for the parent MaTouch controller device. The device is added without configured pages; configure them afterwards from the integration options. Functional-page headers follow the Home Assistant names of the page child devices.",
+        "data": {
+          "display_name": "Device name"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure MaTouch page",
+        "description": "Select a compiled functional page. Configured pages can be edited; unconfigured pages can be configured now. ✓ configured page · ○ page not configured.",
+        "data": {
+          "page_slot": "Page"
+        }
+      },
+      "reconfigure_page_control": {
+        "title": "Configure MaTouch page",
+        "description": "Page: {page_title} · Template: {template} · Control {control_slot} · Function: {function} · Step {position} of {total}. The page is saved atomically only after all required controls are valid.",
+        "data": {
+          "entity_id": "Home Assistant entity",
+          "label": "Display label"
+        }
+      },
+      "reconfigure_control": {
+        "title": "Select MaTouch control",
+        "description": "Page: {page_title}. Select one control. All other mappings will remain unchanged.",
+        "data": {
+          "control_slot": "Control"
+        }
+      },
+      "reconfigure_mapping": {
+        "title": "Edit MaTouch control",
+        "description": "Page: {page_title} · Control: {control_label} · Function: {function}. Only this mapping will be changed.",
+        "data": {
+          "entity_id": "Home Assistant entity",
+          "label": "Display label",
+          "remove_mapping": "Remove this control mapping"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not obtain the runtime manifest from the ESPHome device.",
+      "invalid_manifest": "The ESPHome device returned an invalid or incompatible runtime manifest.",
+      "invalid_mapping": "The selected Home Assistant entity or page configuration is invalid.",
+      "invalid_selection": "Select a valid page or control.",
+      "display_name_required": "Device name is required.",
+      "display_name_too_long": "Device name: maximum 20 characters.",
+      "label_required": "Display label is required.",
+      "label_too_long": "Display label: maximum 8 characters.",
+      "label_unsupported_chars": "Display label contains unsupported characters."
+    },
+    "abort": {
+      "manifest_unavailable": "No compatible ESPHome MaTouch runtime manifest action is available.",
+      "already_configured": "This MaTouch device is already configured with the selected ESPHome action.",
+      "transport_reassociated": "The existing MaTouch device now uses the selected ESPHome action. Its mappings were kept.",
+      "cannot_connect": "Could not obtain the runtime manifest from the ESPHome device.",
+      "invalid_manifest": "The ESPHome device returned an invalid or incompatible runtime manifest.",
+      "invalid_mapping": "The saved mappings are incompatible with the current runtime manifest.",
+      "reconfigure_successful": "MaTouch configuration was updated successfully.",
+      "stale_configuration": "Configuration changed. Reopen the form."
+    }
+  },
+  "options": {
+    "step": {
+      "page": {
+        "title": "MaTouch menu",
+        "description": "Choose a page to configure, the device name, active pages or page order. Each confirmed change is saved at once. Done closes the menu. ✓ configured page · ○ page not configured.",
+        "data": {
+          "page_slot": "Menu"
+        }
+      },
+      "page_saved": {
+        "title": "MaTouch menu",
+        "description": "Saved in Home Assistant, configuration revision {config_revision}. The display synchronizes automatically while the unit is connected. The Runtime configuration sensor shows the saved revision; the Stare sincronizare MaTouch entity of the ESPHome device shows the state reported by the display. ✓ configured page · ○ page not configured.",
+        "data": {
+          "page_slot": "Menu"
+        }
+      },
+      "device": {
+        "title": "Edit MaTouch display name",
+        "description": "This name belongs to the parent MaTouch controller device and is saved when you confirm. To change a functional-page header, rename that page child device in Home Assistant.",
+        "data": {
+          "display_name": "Device name"
+        }
+      },
+      "page_control_select": {
+        "title": "Choose page slot",
+        "description": "Page: {page_title}. Choose a slot to add, replace, rename or remove its mapping. Each confirmed slot is saved at once. ○ marks a slot without a mapping.",
+        "data": {
+          "control_slot": "Slot"
+        }
+      },
+      "page_control": {
+        "title": "Edit MaTouch page",
+        "description": "Page: {page_title} · Template: {template} · Control {control_slot} · Function: {function} · Control {position} of {total}. The change is saved when the page or slot is complete; an incomplete page is not saved.",
+        "data": {
+          "entity_id": "Home Assistant entity",
+          "label": "Display label",
+          "remove_mapping": "Remove this control mapping"
+        }
+      },
+      "active_pages": {
+        "title": "Manage active MaTouch pages",
+        "description": "This changes only the device-local active functional-page mask. Mappings and revisions are not changed. The device remains authoritative.",
+        "data": {
+          "active_page_slots": "Active functional pages"
+        }
+      },
+      "page_order": {
+        "title": "Manage MaTouch page order",
+        "description": "Enter every compiled functional page slot exactly once, separated by commas, in the desired navigation order. The device remains authoritative; mappings, active pages and revisions are not changed.",
+        "data": {
+          "page_order": "Functional page order"
+        }
+      }
+    },
+    "error": {
+      "invalid_mapping": "The selected Home Assistant entity or page configuration is invalid.",
+      "invalid_selection": "Select a valid menu item.",
+      "display_name_required": "Device name is required.",
+      "display_name_too_long": "Device name: maximum 20 characters.",
+      "label_required": "Display label is required.",
+      "label_too_long": "Display label: maximum 8 characters.",
+      "label_unsupported_chars": "Display label contains unsupported characters.",
+      "active_mask_unavailable": "Could not read the device active-page mask. No change was sent.",
+      "active_mask_invalid_selection": "Select at least one compiled functional page.",
+      "active_mask_invalid_response": "The device returned an invalid active-page response. The observed state is stale.",
+      "active_mask_rejected": "The device rejected the active-page change and kept its returned effective state.",
+      "active_mask_result_unknown": "The active-page write could not be confirmed. No automatic retry was attempted; refresh before trying again.",
+      "page_order_unavailable": "Could not read the device page order. No change was sent.",
+      "page_order_invalid_selection": "Enter every compiled functional page slot exactly once in the desired order.",
+      "page_order_invalid_response": "The device returned an invalid page-order response. The observed state is stale.",
+      "page_order_rejected": "The device rejected the page-order change and kept its returned effective order.",
+      "page_order_result_unknown": "The page-order write could not be confirmed. No automatic write retry was attempted; the device was read back instead."
+    },
+    "abort": {
+      "manifest_unavailable": "The configured MaTouch runtime manifest action is unavailable.",
+      "cannot_connect": "Could not obtain the runtime manifest from the ESPHome device.",
+      "invalid_manifest": "The ESPHome device returned an invalid or incompatible runtime manifest.",
+      "invalid_mapping": "The saved mappings are incompatible with the current runtime manifest.",
+      "menu_closed": "MaTouch menu closed. Saved changes are kept.",
+      "stale_configuration": "Configuration changed. Reopen the form."
+    }
+  },
+  "selector": {
+    "options_menu": {
+      "options": {
+        "display_name": "Device name",
+        "active_pages": "Active pages · device",
+        "page_order": "Page order · device",
+        "done": "Done"
+      }
+    },
+    "slot_menu": {
+      "options": {
+        "back": "Back to menu"
+      }
+    }
+  },
+  "services": {
+    "command": {
+      "name": "Handle MaTouch command",
+      "description": "Handle one validated control command sent by a configured MaTouch device.",
+      "fields": {
+        "device_uid": {
+          "name": "Device UID",
+          "description": "Stable UUID of the MaTouch device."
+        },
+        "protocol_version": {
+          "name": "Protocol version",
+          "description": "MaTouch protocol version used by the device."
+        },
+        "boot_id": {
+          "name": "Boot ID",
+          "description": "Identifier generated by the device for its current boot."
+        },
+        "request_id": {
+          "name": "Request ID",
+          "description": "Unique command identifier used for deduplication."
+        },
+        "command": {
+          "name": "Command",
+          "description": "Function requested by the mapped control."
+        },
+        "page_slot": {
+          "name": "Page slot",
+          "description": "One-based page slot exposed by the device manifest."
+        },
+        "control_slot": {
+          "name": "Control slot",
+          "description": "One-based template-defined control slot within the page."
+        }
+      }
+    }
+  }
+}
