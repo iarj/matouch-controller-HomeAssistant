@@ -7,7 +7,7 @@ The display connects to Home Assistant through ESPHome. The integration does not
 
 ## Requirements
 
-- Home Assistant 2026.10.2. See the [compatibility matrix](docs/compatibility.md) for the validated combinations.
+- Home Assistant 2026.10.2 or 2026.10.4. See the [compatibility matrix](docs/compatibility.md) for the validated combinations.
 - [HACS](https://hacs.xyz/).
 - A MaTouch display added to Home Assistant through the ESPHome integration, with **Allow the device to perform Home Assistant actions** turned on in the options of its ESPHome entry.
 
