@@ -4,6 +4,7 @@
 - **One display validated.** The integration supports one config entry per display, but the current release has been validated with one display only.
 - **Firmware is not distributed here.** The display ships with its firmware installed. This repository contains only the Home Assistant integration.
 - **The display must be reachable to open the menu.** Opening the integration options or Reconfigure reads the runtime manifest from the display. If the display is offline, the form reports that it cannot connect.
+- **Adding a deleted display again.** After you delete the MaTouch entry of a display and add it again, the display synchronizes again without a restart of Home Assistant or of the display. If it does not synchronize, restart the display from its **Stare sistem** page.
 - **Saved is not synchronized.** A change saved in Home Assistant reaches the display only when the display is online. Check the **Stare sincronizare MaTouch** entity of the ESPHome device.
 - **Active pages and page order need the display online.** These values are stored on the display. If a write cannot be confirmed, the integration does not retry it automatically; open the menu again to read the current value.
 - **Errors that Home Assistant does not report.** If an action fails without Home Assistant reporting an error, the display shows a timeout without a specific reason.

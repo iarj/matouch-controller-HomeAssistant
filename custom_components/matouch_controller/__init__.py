@@ -828,3 +828,25 @@ async def async_unload_entry(
     return True
 
 
+async def async_remove_entry(
+    hass: HomeAssistant,
+    entry: ConfigEntry,
+) -> None:
+    """Forget the per-UID boot and hello state of a deleted Config Entry.
+
+    Unload keeps the last accepted boot so a reload of the same entry can
+    resume without a new hello. A deleted entry has no such reload: while it
+    is absent, a restarted display's hello is not retained, so a re-added
+    entry would otherwise publish under a stale boot (Protocol §12.1.1,
+    matrix D §11.2). It must wait for a fresh hello instead.
+    """
+    device_uid = effective_entry_data(entry).get(CONF_DEVICE_UID)
+    data = hass.data.get(DOMAIN)
+    if not isinstance(data, MatouchControllerData) or not isinstance(device_uid, str):
+        return
+
+    data.known_boot_ids.pop(device_uid, None)
+    data.pending_hellos.pop(device_uid, None)
+    data.reassociation_hellos.pop(device_uid, None)
+
+

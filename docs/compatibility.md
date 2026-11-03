@@ -7,6 +7,7 @@ This matrix lists only combinations that have been validated. A version that is 
 | 0.1.0 | 2026.10.2 | 1.0 | 1.0 | Lights 1.1, Climate 2.0, Dehumidifier 2.0, Scene Launcher 1.0 | 2026-10-23_c2-identity |
 | 0.1.0 | 2026.10.4 | 1.0 | 1.0 | Lights 1.1, Climate 2.0, Dehumidifier 2.0, Scene Launcher 1.0 | 2026-10-28_e1-4-install |
 | 0.1.1 | 2026.10.4 | 1.0 | 1.0 | Lights 1.1, Climate 2.0, Dehumidifier 2.0, Scene Launcher 1.0 | 2026-10-28_e1-4-install |
+| 0.1.2 | 2026.10.2 | 1.0 | 1.0 | Lights 1.1, Climate 2.0, Dehumidifier 2.0, Scene Launcher 1.0 | 2026-11-02_b1-install |
 
 ## How to read it
 
@@ -17,4 +18,5 @@ This matrix lists only combinations that have been validated. A version that is 
 
 HACS does not install the integration on a Home Assistant version older than the minimum declared in `hacs.json` (2026.10.2).
 Version 0.1.1 changes only the version number and this documentation; its integration code is identical to 0.1.0.
+Version 0.1.2 fixes adding a display again after its entry was deleted. In earlier versions, the display added again did not synchronize until Home Assistant restarted. A release with changed code does not inherit the rows of earlier versions.
 New rows are added when another combination is validated.
